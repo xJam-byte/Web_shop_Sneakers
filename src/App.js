@@ -7,7 +7,7 @@ function App() {
   return (
     <div className="wrapper clear">
       <Cart />
-      <Header />
+      <Header /> 
       <Content />
     </div>
   );
