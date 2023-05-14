@@ -1,11 +1,11 @@
 import React from "react";
 import Cart_Item from "./Cart_Item";
 
-const Cart = () => {
+const Cart = (props) => {
     return(
-        <div style={{display:'none'}} className="overlay">
+        <div className="overlay">
             <div className="drawer">
-                <h2 className="mb-30 d-flex justify-between">Корзина <img className="remove_btn" src="/img/btn-remove.svg" alt="Remove" /></h2>
+                <h2 className="mb-30 d-flex justify-between">Корзина <img onClick={props.onCart} className="remove_btn" src="/img/btn-remove.svg" alt="Close" /></h2>
                 <div className="items">
                     <Cart_Item />
                     <Cart_Item />

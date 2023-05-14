@@ -1,6 +1,30 @@
 import React from "react";
 import Card from "./Card";
 
+const arr = [
+    {
+      title: "Мужские Кроссовки Nike Blazer Mid Suede",
+      price: '12 999',
+      image: '/img/sneakers/1.jpg'
+    },
+    {
+      title: "Мужские Кроссовки Nike Air Max 270",
+      price: '16 000',
+      image: '/img/sneakers/2.jpg'
+    },
+    {
+      title: "Мужские Кроссовки Nike Blazer Mid Suede",
+      price: '11 999',
+      image: '/img/sneakers/3.jpg'
+    },
+    {
+      title: "Кроссовки Puma X Aka Boku Future Rider",
+      price: '14 500',
+      image: '/img/sneakers/4.jpg'
+    }
+]
+  
+
 const Content = () => {
     return(
     <div className="content">
@@ -11,17 +35,19 @@ const Content = () => {
                 <input type="text" placeholder="Поиск..."/>
             </div>
         </div>
-
-        {/* НУЖНО СДЕЛАТЬ КАРТЫ НОМРАЛЬНЫМИ,
-            ТО ЕСТЬ ЧТО БЫ БРАТЬ ИНФУ
-            О КАРТОЧКАХ ИЗ ОБЬЕКТА */}
         <div className="d-flex flex-wrap">
-          <Card />
-          <Card />
-          <Card />
-          <Card />
+          {
+            arr.map((obj) => (
+              <Card 
+                title={obj.title} 
+                price={obj.price} 
+                image={obj.image}
+                onCrossClick={() => alert('ADD Clicked')}
+                onFavClick={() => alert('Liked')}
+                />
+            ))
+          }
         </div>
-
     </div>
     )
 }

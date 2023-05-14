@@ -2,7 +2,7 @@
   font-family: 'Inter';
 }
 body{
-  background-color: #e7f6ff; 
+  background-color: #e7f6ff;
 }
 
 button{
@@ -118,6 +118,8 @@ h3, p{
   background-color: #ffffff;
   box-shadow: -10px 4px 24px rgba(0, 0, 0, 0.1);
   padding: 30px;
+  display: flex;
+  flex-direction: column;
 }
 
 .drawer h2{
