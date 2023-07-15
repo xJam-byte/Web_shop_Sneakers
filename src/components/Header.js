@@ -3,8 +3,8 @@ import { Link } from "react-router-dom";
 import AppContext from "../context";
 
 const Header = () => {
-  const { onClose } = React.useContext(AppContext);
-
+  const { onClose, cartItems } = React.useContext(AppContext);
+  const totalPrice = cartItems.reduce((sum, obj) => sum + obj.price, 0);
   return (
     <header className="header p-30 d-flex justify-between align-center">
       <Link to="/">
@@ -25,17 +25,18 @@ const Header = () => {
         </div>
       </Link>
       <ul className="header_right d-flex">
-        <li className="mr-30">
+        <li onClick={onClose} className="mr-30">
           <img
             style={{ cursor: "pointer" }}
             className="mr-15 mini_icon"
-            onClick={onClose}
             width={18}
             height={18}
             src="/img/cart.svg"
             alt="Cart"
           />
-          <span className="mb-15">1205 руб.</span>
+          <span style={{ cursor: "pointer" }} className="mb-15">
+            {totalPrice} тг.
+          </span>
         </li>
         <li>
           <Link to="/favorites">
@@ -49,16 +50,18 @@ const Header = () => {
             />
           </Link>
         </li>
-        <li>
-          <img
-            style={{ cursor: "pointer" }}
-            className="mini_icon"
-            width={18}
-            height={18}
-            src="/img/profile.svg"
-            alt="Profile"
-          />
-        </li>
+        <Link to="orders">
+          <li>
+            <img
+              style={{ cursor: "pointer" }}
+              className="mini_icon"
+              width={18}
+              height={18}
+              src="/img/profile.svg"
+              alt="Profile"
+            />
+          </li>
+        </Link>
       </ul>
     </header>
   );

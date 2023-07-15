@@ -32,7 +32,7 @@ button {
     font-weight: 600;
     color: #5c5c5c;
   }
-} 
+}
   
 .mini_icon{
   &:hover {
@@ -138,6 +138,17 @@ p {
     line-height: 24px;
   }
 }
+
+
+.remove_btn {
+  cursor: pointer;
+  opacity: 0.5;
+  &:hover {
+    opacity: 1;
+    transition: all 0.15s ease-in-out;
+  }
+}
+
 .overlay {
   position: absolute;
   left: 0;
@@ -147,23 +158,25 @@ p {
   background-color: rgba(0, 0, 0, 0.5);
   z-index: 1;
 }
-
-.drawer {
-  position: absolute;
-  width: 420px;
-  height: 100%;
-  right: 0;
-  background-color: #ffffff;
-  box-shadow: -10px 4px 24px rgba(0, 0, 0, 0.1);
-  padding: 30px;
-  display: flex;
-  flex-direction: column;
-  h2 {
-    margin: 0;
-    font-size: 24px;
-  }
+.items {
+  flex: 1;
+  overflow: auto;
+  margin-bottom: 40px;
 }
-
+.drawer {
+position: absolute;
+width: 420px;
+height: 100%;
+right: 0;
+background-color: #ffffff;
+box-shadow: -10px 4px 24px rgba(0, 0, 0, 0.1);
+padding: 30px;
+display: flex;
+flex-direction: column;
+h2 {
+  margin: 0;
+  font-size: 24px;
+}
 .cart_item {
   border: 2px solid #f3f3f3;
   border-radius: 20px;
@@ -183,44 +196,6 @@ p {
     background-position: 0 -3px;
     background-repeat: no-repeat;
     margin-right: 20px;
-  }
-
-}
-.remove_btn {
-  cursor: pointer;
-  opacity: 0.5;
-  &:hover {
-    opacity: 1;
-    transition: all 0.15s ease-in-out;
-  }
-}
-
-.items {
-  flex: 1;
-  overflow: auto;
-  margin-bottom: 40px;
-}
-
-.green_button {
-  width: 100%;
-  height: 55px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background-color: #9dd558;
-  border: none;
-  color: white;
-  font-size: 16px;
-  font-weight: 500;
-  border-radius: 18px;
-  cursor: pointer;
-  &:hover {
-    background-color: #b4ed6d;
-    transition: all 0.2s ease-in-out;
-  }
-  &:disabled{
-    background-color: #bebebe !important;
-    cursor: not-allowed;
   }
 
 }
@@ -257,6 +232,38 @@ p {
     }
   }
 }
+
+}
+.items {
+  flex: 1;
+  overflow: auto;
+  margin-bottom: 40px;
+}
+
+.green_button {
+  width: 100%;
+  height: 55px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #9dd558;
+  border: none;
+  color: white;
+  font-size: 16px;
+  font-weight: 500;
+  border-radius: 18px;
+  cursor: pointer;
+  &:hover {
+    background-color: #b4ed6d;
+    transition: all 0.2s ease-in-out;
+  }
+  &:disabled{
+    background-color: #bebebe !important;
+    cursor: not-allowed;
+  }
+
+}
+
 
 @keyframes button-loading {
   0%{

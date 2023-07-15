@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
+
 import Info from "./Info";
 import AppContext from "../context";
 
@@ -10,6 +11,7 @@ function Cart(props) {
   const [isOrderCompleted, setIsOrderCompleted] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const [orderId, setorderId] = useState(null);
+  const totalPrice = cartItems.reduce((sum, obj) => sum + obj.price, 0);
 
   const onClickOrder = async () => {
     try {
@@ -65,7 +67,7 @@ function Cart(props) {
                   ></div>
                   <div className="mr-20 flex">
                     <p className="mb-5">{item.title}</p>
-                    <b>{item.price} руб.</b>
+                    <b>{item.price} тг.</b>
                   </div>
                   <img
                     onClick={() => props.onRemove(item.id)}
@@ -79,14 +81,14 @@ function Cart(props) {
             <div className="cart_total_block">
               <ul>
                 <li>
-                  <span>Итого:</span>
-                  <div></div>
-                  <b>21 498 руб.</b>
-                </li>
-                <li>
                   <span>Налог 5%:</span>
                   <div></div>
-                  <b>1074 руб.</b>
+                  <b>{(totalPrice * 5) / 100} тг.</b>
+                </li>
+                <li>
+                  <span>Итого:</span>
+                  <div></div>
+                  <b>{totalPrice * 0.95} тг.</b>
                 </li>
               </ul>
 

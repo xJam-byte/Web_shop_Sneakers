@@ -43,27 +43,31 @@ const Card = ({
       ) : (
         <>
           <div className="card_favorite">
-            <img
-              src={liked ? "/img/with.svg" : "/img/without.svg"}
-              alt="Unliked"
-              onClick={handleLikedClick}
-            />
+            {onLike && (
+              <img
+                src={liked ? "/img/with.svg" : "/img/without.svg"}
+                alt="Unliked"
+                onClick={handleLikedClick}
+              />
+            )}
           </div>
           <img width="100%" height={130} src={image} alt="" />
           <h5>{title}</h5>
           <div className="d-flex justify-between align-center">
             <div className="d-flex flex-column">
               <span>Цена:</span>
-              <b>{price} руб.</b>
+              <b>{price} тг.</b>
             </div>
-            <img
-              className="button"
-              onClick={OnPlus}
-              width={28}
-              height={28}
-              src={isItemAdded(id) ? "/img/checked.svg" : "/img/Cross.svg"}
-              alt="Sneaker"
-            />
+            {onCross && (
+              <img
+                className="button"
+                onClick={OnPlus}
+                width={28}
+                height={28}
+                src={isItemAdded(id) ? "/img/checked.svg" : "/img/Cross.svg"}
+                alt="Sneaker"
+              />
+            )}
           </div>
         </>
       )}
