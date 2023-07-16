@@ -28,7 +28,7 @@ const Home = ({
 
   return (
     <div className="content">
-      <div className="d-flex align-center mb-40 ml-30 justify-between mt-40 mr-30">
+      <div className="d-flex align-center mb-40 ml-30 justify-between mt-40 mr-30 text">
         <h1>{searchValue ? `Поиск по: ${searchValue}` : "Все кроссовки"}</h1>
         <div className="search_block d-flex">
           <img src="/img/search.svg" alt="Search" />
@@ -50,7 +50,7 @@ const Home = ({
           />
         </div>
       </div>
-      <div className="d-flex flex-wrap">{renderItems()}</div>
+      <div className="d-flex flex-wrap cards">{renderItems()}</div>
     </div>
   );
 };

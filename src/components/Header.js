@@ -3,8 +3,8 @@ import { Link } from "react-router-dom";
 import AppContext from "../context";
 
 const Header = () => {
-  const { onClose, cartItems } = React.useContext(AppContext);
-  const totalPrice = cartItems.reduce((sum, obj) => sum + obj.price, 0);
+  const { onClose } = React.useContext(AppContext);
+
   return (
     <header className="header p-30 d-flex justify-between align-center">
       <Link to="/">
@@ -18,14 +18,14 @@ const Header = () => {
               alt="Logo"
             />
             <div>
-              <h3 className="text-uppercase">React Sneakers</h3>
-              <p className="opacity-5">Магазин лучших кроссовок</p>
+              <h3 className="visibleText1 text-uppercase">React Sneakers</h3>
+              <p className="visibleText2 opacity-5">Магазин лучших кроссовок</p>
             </div>
           </div>
         </div>
       </Link>
       <ul className="header_right d-flex">
-        <li onClick={onClose} className="mr-30">
+        <li onClick={onClose} className="fistrLi">
           <img
             style={{ cursor: "pointer" }}
             className="mr-15 mini_icon"
@@ -34,9 +34,6 @@ const Header = () => {
             src="/img/cart.svg"
             alt="Cart"
           />
-          <span style={{ cursor: "pointer" }} className="mb-15">
-            {totalPrice} тг.
-          </span>
         </li>
         <li>
           <Link to="/favorites">

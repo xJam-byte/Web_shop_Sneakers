@@ -50,7 +50,13 @@ const Card = ({
               />
             )}
           </div>
-          <img width="100%" height={130} src={image} alt="" />
+          <img
+            className="mainImg"
+            width="100%"
+            height={130}
+            src={image}
+            alt=""
+          />
           <h5>{title}</h5>
           <div className="d-flex justify-between align-center">
             <div className="d-flex flex-column">
