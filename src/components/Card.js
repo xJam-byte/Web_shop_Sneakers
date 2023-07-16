@@ -1,4 +1,4 @@
-import React, { Fragment, useState } from "react";
+import React from "react";
 import ContentLoader from "react-content-loader";
 import AppContext from "../context";
 
@@ -9,17 +9,14 @@ const Card = ({
   title,
   price,
   image,
-  favorited = false,
   loading = false,
 }) => {
-  const { isItemAdded } = React.useContext(AppContext);
-  const [liked, setLiked] = useState(favorited);
+  const { isItemAdded, isItemAddedToFavs } = React.useContext(AppContext);
 
   const OnPlus = () => {
     onCross({ id, title, price, image });
   };
   const handleLikedClick = () => {
-    setLiked(!liked);
     onLike({ id, title, price, image });
   };
 
@@ -45,7 +42,9 @@ const Card = ({
           <div className="card_favorite">
             {onLike && (
               <img
-                src={liked ? "/img/with.svg" : "/img/without.svg"}
+                src={
+                  isItemAddedToFavs(id) ? "/img/with.svg" : "/img/without.svg"
+                }
                 alt="Unliked"
                 onClick={handleLikedClick}
               />

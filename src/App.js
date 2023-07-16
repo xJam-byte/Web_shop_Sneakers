@@ -85,6 +85,9 @@ const App = () => {
     setSearchValue(e.target.value);
   };
 
+  const isItemAddedToFavs = (id) => {
+    return favorites.some((obj) => Number(obj.id) === Number(id));
+  };
   const isItemAdded = (id) => {
     return cartItems.some((obj) => Number(obj.id) === Number(id));
   };
@@ -99,6 +102,7 @@ const App = () => {
         onAddToFavorite,
         onAddTCart,
         setCartItems,
+        isItemAddedToFavs,
         onClose,
       }}
     >
